@@ -15,7 +15,7 @@ Git
 Clone or download the project and from the git master branch:
 ```
 npm install
-set an env variable 'url' to the access url of your mongoDB (with credentials)
+set an env variable 'MONGOLAB_URI' to the access url of mongoDB (with credentials)
 npm start
 cd frontend
 yarn install
