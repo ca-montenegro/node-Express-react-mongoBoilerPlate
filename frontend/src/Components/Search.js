@@ -14,6 +14,8 @@ class Search extends Component {
             userImg2: "",
             userName1: "",
             userName2: "",
+            ready1:0,
+            ready2:0,
             jsonUs1: [],
             jsonUs2: [],
             cantImg1: 0,
@@ -51,7 +53,9 @@ class Search extends Component {
             cantImg2: j + 1,
             count1: likes1,
             count2: likes2,
-            winner:win
+            winner:win,
+            ready1 : 0,
+            ready2:0
         })
 
     }
@@ -69,17 +73,22 @@ class Search extends Component {
         this.setState({
             user1: evt.target.value
         });
-        console.log("user assign 1 " + this.state.user1);
+
     }
 
     updateInputValue2(evt) {
         this.setState({
             user2: evt.target.value
-        });
-        console.log("user assign 2 " + this.state.user2);
+        })
+    }
+
+    verifyUser(){
+        if(this.state.user1==this.state.user2)
+            alert("The user input is the same, please use other");
     }
 
     handleClick(evt) {
+        this.verifyUser();
         var userSearch = "";
         console.log("event: " + evt.target.value);
         if (evt.target.value === this.state.user1) {
@@ -95,21 +104,35 @@ class Search extends Component {
                 if (data.error) {
                     window.alert("No se encontró al usuario especificado");
                 }
+
                 if (userSearch === this.state.user1) {
+
                     this.setState({
                         jsonUs1: data.user.media.nodes,
                         userImg1: data.user.profile_pic_url_hd,
-                        userName1: data.user.full_name
+                        userName1: data.user.full_name,
+                        ready1:1
                     });
+                    if(data.user.is_private) {
+                        alert("The account "+this.state.user1+" is private, please use other");
+                        this.setState({ready1:0});
+                    }
                 }
                 else if (userSearch === this.state.user2) {
+
                     userSearch = this.state.user2;
                     this.setState({
                         jsonUs2: data.user.media.nodes,
                         userImg2: data.user.profile_pic_url_hd,
-                        userName2: data.user.full_name
+                        userName2: data.user.full_name,
+                        ready2:1
                     });
+                    if(data.user.is_private) {
+                        alert("The account "+this.state.user2+" is private, please use other");
+                        this.setState({ready2:0});
+                    }
                 }
+
             })
             .catch(error => {
                 console.log("There has been a problem with your fetch operation: " + error.message);
@@ -119,9 +142,9 @@ class Search extends Component {
 
     saveInDb() {
 
+
     }
 
-    //this.addAccessory = this.addAccessory.bind(this);
 
 
     render() {
@@ -139,7 +162,7 @@ class Search extends Component {
                                 onClick={this.handleClick.bind(this)}>Submit User 1
                         </button>
                         {this.state.userImg1 !== "" &&
-                        <ImagePrev userName={this.state.userName1} userImg={this.state.userImg1}/>}
+                        <ImagePrev userName={this.state.userName1} userImg={this.state.userImg1} ready = {this.state.ready1}/>}
                         {this.state.count1 !== 0 &&
                         <Results cantidad={this.state.cantImg1} likes={this.state.count1}/>
                         }
@@ -154,7 +177,7 @@ class Search extends Component {
                                 onClick={this.handleClick.bind(this)}>Submit User 2
                         </button>
                         {this.state.userImg2 !== "" &&
-                        <ImagePrev userName={this.state.userName2} userImg={this.state.userImg2}/>}
+                        <ImagePrev userName={this.state.userName2} userImg={this.state.userImg2} ready = {this.state.ready2}  />}
 
                         {this.state.count2 !== 0 &&
                         <Results cantidad={this.state.cantImg2} likes={this.state.count2}/>}

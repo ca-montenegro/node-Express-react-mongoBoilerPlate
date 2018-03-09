@@ -1,20 +1,24 @@
 import React, {Component} from "react";
 
-class ImagePrev extends Component{
+class ImagePrev extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
-            userImg:this.props.userImg,
-            userName:this.props.userName
+        this.state = {
+            userImg: this.props.userImg,
+            userName: this.props.userName
         }
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div className="container">
-                <img src={this.props.userImg} alt={this.props.userName} style={{"borderRadius": "50%", "horizontal-align":"center"}}/>
+                <br/>
+                <br/>
+                <img src={this.props.userImg} alt={this.props.userName}
+                     style={{"borderRadius": "50%", "horizontal-align": "center"}}/>
                 <h1>{this.props.userName}</h1>
+                {this.props.ready===1 && <h3>Ready</h3>}
             </div>
         );
     }

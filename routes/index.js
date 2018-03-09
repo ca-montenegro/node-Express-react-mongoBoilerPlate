@@ -29,6 +29,11 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 //const kitty = new Cat({ name: "Zildjian" });
 //kitty.save().then(() => console.log("meow"));
 
+/* Push fights in db */
+
+router.get("/saveFight/:user1/:user2", function(req,res){
+  
+})
 /* GET accessories from db */
 /**router.get("/dataAccessories", function (req, res) {
     AccessoryModel.find().then(function (doc) {
