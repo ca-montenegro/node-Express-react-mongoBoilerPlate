@@ -209,7 +209,7 @@ class Search extends Component {
                     <Col sm={12} md={12} lg={12}>
                         <Row center="xs md lg">
                             <Col sm={3} md={3} lg={3}>
-                                {this.state.userName1 && this.state.userName2 &&
+                                {this.state.ready1===1 && this.state.ready2===1 &&
                                 <button onClick={this.onclick.bind(this)}>
                                     Fight!!
                                 </button>}

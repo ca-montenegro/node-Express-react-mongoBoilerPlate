@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Search from "./Components/Search.js";
+import TableResults from "./Components/TableResults.js";
 
 
 class App extends Component {
@@ -20,6 +21,10 @@ class App extends Component {
                     <h2 className="App-title">Likes fight in Instagram</h2>
                 </header>
                 <Search/>
+                <br/>
+                <br/>
+                <h3>Records Table</h3>
+                <TableResults/>
             </div>
         );
     }
