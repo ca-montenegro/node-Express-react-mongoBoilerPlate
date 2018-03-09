@@ -36,7 +36,7 @@ cd ..
 ```
 Then open your browser on http://localhost:3000
 
-##Setting env variable
+## Setting env variable
 
 Now what you have to do before you can deploy is setting up a mongo database. To do this:
 
