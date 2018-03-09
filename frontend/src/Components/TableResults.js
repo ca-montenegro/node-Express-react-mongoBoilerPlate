@@ -36,6 +36,25 @@ class TableResults extends Component {
             <div>
 
                 <Row>
+
+                        <Col sm={4} md={4} lg={4}>
+                            <h3>Player 1</h3>
+                        </Col>
+                        <Col sm={1} md={1} lg={1}>
+                            <h3>Likes</h3>
+                        </Col>
+                        <Col sm={4} md={4} lg={4}>
+                            <h3>Player 2</h3>
+                        </Col>
+                        <Col sm={1} md={1} lg={1}>
+                            <h3>Likes</h3>
+                        </Col>
+                        <Col sm={2} md={2} lg={2}>
+                            <h3>Big Winner</h3>
+                        </Col>
+
+                </Row>
+                <Row>
                     <Col sm={12} md={12} lg={12}>
                         {this.state.records.map(
                             (data) => this.renderEntry(data.us1, data.us2, data.likes1, data.likes2, data.winnerFight))}
@@ -52,23 +71,22 @@ class Entry extends React.Component {
             <div>
                 <Row>
                     <Col sm={4} md={4} lg={4}>
-                        <h4>Player 1</h4>
+
                         <h5>{this.props.user1}</h5>
                     </Col>
                     <Col sm={1} md={1} lg={1}>
-                        <h4>Likes 1</h4>
+
                         <h5>{this.props.likes1}</h5>
                     </Col>
                     <Col sm={4} md={4} lg={4}>
-                        <h4>Player 2</h4>
+
                         <h5>{this.props.user2}</h5>
                     </Col>
                     <Col sm={1} md={1} lg={1}>
-                        <h4>Likes 2</h4>
+
                         <h5>{this.props.likes2}</h5>
                     </Col>
                     <Col sm={2} md={2} lg={2}>
-                        <h4>Winner</h4>
                         <h5>{this.props.winner}</h5>
                     </Col>
                 </Row>
