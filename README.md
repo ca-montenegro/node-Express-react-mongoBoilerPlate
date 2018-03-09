@@ -50,10 +50,10 @@ Ex: MONGOLAB_URI="mongodb://<user>:<password>@ds259778.mlab.com:<port>/<dbname>
 
 The variables you need to add are:
 
-PORT : This is the port you want the server to run on.
-URL : The url where mongo is listening, this can be something like mongodb://localhost:xxxx/<dbname> or mongodb://<user>:<pass>@dsxxxxx.mlab.com:xxxx/<dbname> if you are using mongo lab.
-DBNAME : The name of the database you want to connect to.
-COLLECT : The name of the collection inside the database you want to use for this project. Try to have this collection empty before deploying as well.
+*PORT : This is the port you want the server to run on.
+*URL : The url where mongo is listening, this can be something like mongodb://localhost:xxxx/<dbname> or mongodb://<user>:<pass>@dsxxxxx.mlab.com:xxxx/<dbname> if you are using mongo lab.
+*DBNAME : The name of the database you want to connect to.
+*COLLECT : The name of the collection inside the database you want to use for this project. Try to have this collection empty before deploying as well.
 
 ## How to Use the App
 
