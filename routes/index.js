@@ -4,6 +4,7 @@ var router = express.Router();
 const MongoClient = require("mongodb").MongoClient;
 const assert = require("assert");
 var dotenv = require("dotenv");
+var fightModel = require("../Models/FightModel.js");
 
 dotenv.config();
 var url = process.env.MONGOLAB_URI;
@@ -22,7 +23,6 @@ db.once("open", function() {
 // Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
 //Get the default connection
-var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 
@@ -31,16 +31,27 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 /* Push fights in db */
 
-router.get("/saveFight/:user1/:user2", function(req,res){
-  
-})
-/* GET accessories from db */
-/**router.get("/dataAccessories", function (req, res) {
-    AccessoryModel.find().then(function (doc) {
+router.post("/saveFight", function(req,res){
+  let item = {
+      us1: req.body.user1,
+      us2 : req.body.user2,
+      likes1: req.body.like1,
+      likes2: req.body.like2,
+      winnerFight : req.body.winner
+  };
+  console.log(item);
+  let data = new fightModel(item);
+  data.save();
+  res.send(data);
+});
+/* GET fights from db */
+
+router.get("/getFights", function (req, res) {
+    fightModel.find().then(function (doc) {
         console.log(doc);
         res.send(doc);
     });
-});**/
+});
 
 /* Home pg*/
 /**router.get("/:param", function(req,res){

@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import ImagePrev from './ImagePrev.js';
 import Results from "./Results.js";
+import request from "superagent";
 
 class Search extends Component {
 
@@ -57,6 +58,8 @@ class Search extends Component {
             ready1 : 0,
             ready2:0
         })
+        setTimeout(()=> { this.saveInDb(); }, 3000);
+        this.saveInDb();
 
     }
 
@@ -141,7 +144,24 @@ class Search extends Component {
 
 
     saveInDb() {
-
+        const body = JSON.stringify({
+            user1: this.state.userName1,
+            user2 : this.state.userName2,
+            like1: this.state.count1,
+            like2: this.state.count2,
+            winner : this.state.winner
+        });
+        console.log(body);
+        request
+            .post("/saveFight")
+            .set("Content-Type", "application/json")
+            .send(body)
+            .end((err, res) =>{
+                console.log(res);
+                if(err){
+                    console.log(err);
+                }
+            })
 
     }
 
