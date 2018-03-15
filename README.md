@@ -4,10 +4,10 @@ Insta-fight app. Likes fight among Instagram users. App made for the Web Develop
 ## How to Use the App
 
 In the app you have to submit player by player. Type the user name and hit enter or the submit button.
-If the player has a public profile, he will be ready to play. In case the player have private profile, an alert will be display, the player will be not ready and you must type another user.
+If the player has a public profile, he will be ready to play. In case the player has private profile, an alert will be display, the player will be not ready and you must type another user.
 When both players are ready, you can hit the button "Fight!!" and the player with more likes in his/her pictures will win.
 
-At the both is the records table where you can see the all the matches among user, the likes-count and the winner.
+At the bottom stand the record table where you can see all the matches among user, the likes-count and the winner.
 
 
 # Running the app
@@ -54,14 +54,6 @@ The variables you need to add are:
 *URL : The url where mongo is listening, this can be something like mongodb://localhost:xxxx/<dbname> or mongodb://<user>:<pass>@dsxxxxx.mlab.com:xxxx/<dbname> if you are using mongo lab.
 *DBNAME : The name of the database you want to connect to.
 *COLLECT : The name of the collection inside the database you want to use for this project. Try to have this collection empty before deploying as well.
-
-## How to Use the App
-
-In the app you have to submit player by player. Type the user name and hit enter or the submit button.
-If the player has a public profile, he will be ready to play. In case the player have private profile, an alert will be display, the player will be not ready and you must type another user.
-When both players are ready, you can hit the button "Fight!!" and the player with more likes in his/her pictures will win.
-
-At the both is the records table where you can see the all the matches among user, the likes-count and the winner.
 
 ## Built With
 
