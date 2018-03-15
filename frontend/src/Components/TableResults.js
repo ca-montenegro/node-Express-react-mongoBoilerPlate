@@ -56,8 +56,12 @@ class TableResults extends Component {
                 </Row>
                 <Row>
                     <Col sm={12} md={12} lg={12}>
-                        {this.state.records.map(
-                            (data) => this.renderEntry(data.us1, data.us2, data.likes1, data.likes2, data.winnerFight))}
+                        {this.state.records.map((data) => this.renderEntry(
+                            data.us1,
+                            data.us2,
+                            data.likes1,
+                            data.likes2,
+                            data.winnerFight))}
                     </Col>
                 </Row>
             </div>

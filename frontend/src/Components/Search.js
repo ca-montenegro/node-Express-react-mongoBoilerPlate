@@ -38,14 +38,14 @@ class Search extends Component {
         var likes1 = 0;
 
         while (i < length1) {
-            likes1 += this.state.jsonUs1[i].likes.count;
+            likes1 += this.state.jsonUs1[i].node.edge_liked_by.count;
             i++;
         }
 
         var j = 0;
         var likes2 = 0;
         while (j < length2) {
-            likes2 += this.state.jsonUs2[j].likes.count;
+            likes2 += this.state.jsonUs2[j].node.edge_liked_by.count;
             j++;
         }
         const win = likes1>likes2?this.state.userName1 : this.state.userName2;
@@ -57,7 +57,8 @@ class Search extends Component {
             winner:win,
             ready1 : 0,
             ready2:0
-        })
+        });
+        console.log(this.state);
         setTimeout(()=> { this.saveInDb(); }, 3000);
         this.saveInDb();
 
@@ -111,12 +112,12 @@ class Search extends Component {
                 if (userSearch === this.state.user1) {
 
                     this.setState({
-                        jsonUs1: data.user.media.nodes,
-                        userImg1: data.user.profile_pic_url_hd,
-                        userName1: data.user.full_name,
+                        jsonUs1: data.graphql.user.edge_owner_to_timeline_media.edges,
+                        userImg1: data.graphql.user.profile_pic_url_hd,
+                        userName1: data.graphql.user.full_name,
                         ready1:1
                     });
-                    if(data.user.is_private) {
+                    if(data.graphql.user.is_private) {
                         alert("The account "+this.state.user1+" is private, please use other");
                         this.setState({ready1:0});
                     }
@@ -125,12 +126,12 @@ class Search extends Component {
 
                     userSearch = this.state.user2;
                     this.setState({
-                        jsonUs2: data.user.media.nodes,
-                        userImg2: data.user.profile_pic_url_hd,
-                        userName2: data.user.full_name,
+                        jsonUs2: data.graphql.user.edge_owner_to_timeline_media.edges,
+                        userImg2: data.graphql.user.profile_pic_url_hd,
+                        userName2: data.graphql.user.full_name,
                         ready2:1
                     });
-                    if(data.user.is_private) {
+                    if(data.graphql.user.is_private) {
                         alert("The account "+this.state.user2+" is private, please use other");
                         this.setState({ready2:0});
                     }
