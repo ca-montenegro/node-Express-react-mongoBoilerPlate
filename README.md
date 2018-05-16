@@ -1,5 +1,5 @@
 # Insta-Fights App
-Insta-fight app. Likes fight among Instagram users. App made for the Web Development CS at University of Los Andes - Bogotá, Colombia2018-1
+Insta-fight app. Pictures likes fight among Instagram users. App made for the Web Development CS at University of Los Andes - Bogotá, Colombia 2018-1
 
 ## How to Use the App
 
@@ -9,39 +9,46 @@ When both players are ready, you can hit the button "Fight!!" and the player wit
 
 At the bottom stand the record table where you can see all the matches among user, the likes-count and the winner.
 
+### Creative Component
+When the first or second user´s profile name is enter in the inputs file, the image of the user is load inmediatly, so the user can confirm if that is the search user, also is posible to see if the instagram profile is public so it can fight against the other user. If it is not posible, an alert will be display and the fight button will not be enable to click on.
+
 
 # Running the app
 
 Follow this instructions to run the app locally. 
 Or, if you don`t feel to install it locally you can play in this URL:
-[http://instafightsapp.herokuapp.com](#http://instafightsapp.herokuapp.com)
+[http://instafightsapp.herokuapp.com](http://instafightsapp.herokuapp.com)
 
 ## Prerequisites
 ```
 Node JS
 Yarn
 Git
+Mongo
 ```
 
 Clone or download the project and from the git master branch:
 ```
+git clone https://github.com/ca-montenegro/node-Express-react-mongoBoilerPlate.git
+cd node-Express-react-mongoBoilerPlate
 npm install
 set an env variable 'MONGOLAB_URI' to the access url of mongoDB (with credentials) 
 npm start
+(open other terminal or cmd window in the same folder)
 cd frontend
 yarn install
 yarn start
-cd ..
 
 ```
 Then open your browser on http://localhost:3000
+
 
 ## Setting env variable
 
 Now what you have to do before you can deploy is setting up a mongo database. To do this:
 
 You can download mongodb [here](https://www.mongodb.com/download-center#community), then make a new database with the name you want.
-Or you can also use mongolab for free.
+Or you can also use mlab for free.
 What you need to do now is set up ENV variables for the project before you can deploy. This is important because this is how the project will connect to the db and how you can also set up your preferred port for the back-end server of this program. To do this step you can:
 
 Manually configuring environmental variables in your OS using the terminal or any other way your OS allow you to do so.
@@ -64,7 +71,7 @@ The variables you need to add are:
 * CSS
 * HTML
 
-## Authors
+## Author
 
 * **[Camilo Montenegro](https://github.com/ca-montenegro)**
 
